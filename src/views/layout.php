@@ -8,7 +8,18 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<?php
+if (isset($_SESSION['alert'])) {
+    $alertType = $_SESSION['alert']['type'];
+    $alertMessage = $_SESSION['alert']['message'];
+    echo "<div class='alert alert-{$alertType} alert-dismissible fade show' role='alert'>
+                {$alertMessage}
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+              </div>";
+    unset($_SESSION['alert']);
+}
+?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
         <a class="navbar-brand" href="index.php">家計簿アプリ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

@@ -1,29 +1,31 @@
 <h1>支出分析</h1>
 <canvas id="expenseChart" width="400" height="200"></canvas>
 
-<h2 class="mt-4">週別支出詳細</h2>
-<table class="table">
-    <thead>
-    <tr>
-        <th>週</th>
-        <th>総支出</th>
-        <th>差額</th>
-        <th>状態</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($analysis as $week => $data): ?>
+<h2 class="mb-3">週別支出詳細</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <td><?= $week ?>週目</td>
-            <td>¥<?= number_format($data['total']) ?></td>
-            <td class="<?= $data['status'] === 'surplus' ? 'text-success' : 'text-danger' ?>">
-                ¥<?= number_format(abs($data['difference'])) ?>
-            </td>
-            <td><?= $data['status'] === 'surplus' ? '黒字' : '赤字' ?></td>
+            <th>週</th>
+            <th>総支出</th>
+            <th>差額</th>
+            <th>状態</th>
         </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <?php foreach ($analysis as $week => $data): ?>
+            <tr>
+                <td><?= $week ?>週目</td>
+                <td>¥<?= number_format($data['total']) ?></td>
+                <td class="<?= $data['status'] === 'surplus' ? 'text-success' : 'text-danger' ?>">
+                    ¥<?= number_format(abs($data['difference'])) ?>
+                </td>
+                <td><?= $data['status'] === 'surplus' ? '黒字' : '赤字' ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

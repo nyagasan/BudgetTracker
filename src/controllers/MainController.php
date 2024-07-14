@@ -32,6 +32,10 @@ class MainController {
                     'other' => floatval($_POST['other'])
                 ];
                 $this->budgetModel->setBudget($budget);
+                $_SESSION['alert'] = [
+                    'type' => 'success',
+                    'message' => '予算が正常に設定されました。'
+                ];
                 header('Location: index.php');
                 exit;
             } else {
@@ -43,7 +47,8 @@ class MainController {
         $this->render('set_budget');
     }
 
-    public function recordExpense() {
+    public function recordExpense()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['date']) && isset($_POST['type']) && isset($_POST['amount']) && isset($_POST['note'])) {
                 $expense = [
@@ -53,6 +58,10 @@ class MainController {
                     'note' => $_POST['note']
                 ];
                 $this->expenseModel->addExpense($expense);
+                $_SESSION['alert'] = [
+                    'type' => 'success',
+                    'message' => '支出が正常に記録されました。'
+                ];
                 header('Location: index.php');
                 exit;
             } else {

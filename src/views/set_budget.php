@@ -1,4 +1,4 @@
-<h1>予算設定</h1>
+<h1 class="mb-4">予算設定</h1>
 <?php if (isset($error)): ?>
     <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
 <?php endif; ?>

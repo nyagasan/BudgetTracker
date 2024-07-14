@@ -1,4 +1,4 @@
-<h1>支出記録</h1>
+<h1 class="mb-4">支出記録</h1>
 <?php if (isset($error)): ?>
     <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
 <?php endif; ?>
