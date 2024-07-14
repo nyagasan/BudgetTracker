@@ -13,14 +13,16 @@ class MainController {
 
     public function home() {
         $budget = $this->budgetModel->getBudget();
+        $isBudgetSet = $this->budgetModel->isBudgetSet();
         $expenses = $this->expenseModel->getExpenses();
         $dailyTotal = $this->calculateDailyTotal($expenses);
         $difference = $this->calculateDifference($budget, $dailyTotal);
         $this->render('home', [
             'budget' => $budget,
-            'expenses' => $expenses ?: [],
+            'expenses' => $expenses,
             'dailyTotal' => $dailyTotal,
-            'difference' => $difference
+            'difference' => $difference,
+            'isBudgetSet' => $isBudgetSet
         ]);
     }
 

@@ -1,3 +1,14 @@
+<?php if (!$isBudgetSet): ?>
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">予算が設定されていません！</h4>
+        <p>効果的な家計管理のために、まずは予算を設定しましょう。</p>
+        <hr>
+        <p class="mb-0">
+            <a href="index.php?action=set_budget" class="btn btn-primary">予算を設定する</a>
+        </p>
+    </div>
+<?php endif; ?>
+
 <h1 class="mb-4">ホーム</h1>
 <p>日々の支出記録で、予算管理を効率的に。</p>
 <div class="row">
@@ -5,9 +16,13 @@
         <div class="card">
             <div class="card-header">今日の予算</div>
             <div class="card-body">
-                <p class="card-text">1食あたり: ¥<?= number_format($budget['meal'] ?? 0) ?></p>
-                <p class="card-text">その他: ¥<?= number_format($budget['other'] ?? 0) ?></p>
-                <p class="card-text">合計: ¥<?= number_format(($budget['meal'] ?? 0) * 3 + ($budget['other'] ?? 0)) ?></p>
+                <?php if ($isBudgetSet): ?>
+                    <p class="card-text">1食あたり: ¥<?= number_format($budget['meal']) ?></p>
+                    <p class="card-text">その他: ¥<?= number_format($budget['other']) ?></p>
+                    <p class="card-text">合計: ¥<?= number_format(($budget['meal'] * 3) + $budget['other']) ?></p>
+                <?php else: ?>
+                    <p class="card-text text-muted">予算が設定されていません</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>

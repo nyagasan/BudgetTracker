@@ -16,4 +16,9 @@ class BudgetModel {
     public function setBudget($budget) {
         file_put_contents($this->file, json_encode($budget));
     }
+
+    public function isBudgetSet() {
+        $budget = $this->getBudget();
+        return ($budget['meal'] > 0 || $budget['other'] > 0);
+    }
 }
