@@ -1,9 +1,19 @@
 <?php
-
-use controllers\MainController;
-
-include_once __DIR__ . "/controllers/MainController.php";
+require_once 'controllers/MainController.php';
 
 $controller = new MainController();
-$controller->display();
-?>
+$action = $_GET['action'] ?? 'home';
+
+switch ($action) {
+    case 'set_budget':
+        $controller->setBudget();
+        break;
+    case 'record_expense':
+        $controller->recordExpense();
+        break;
+    case 'analysis':
+        $controller->showAnalysis();
+        break;
+    default:
+        $controller->home();
+}
