@@ -22,3 +22,8 @@
   - chart.js
 - アーキテクチャ
   - MVC(Model - View - Controller)
+
+## 起動方法
+1. 該当ディレクトリに移動
+2. `docker compose up --build`
+3. `http://localhost/`にアクセス
