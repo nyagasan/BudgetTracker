@@ -1,4 +1,5 @@
 <h1 class="mb-4">ホーム</h1>
+<p>日々の支出記録で、予算管理を効率的に。</p>
 <div class="row">
     <div class="col-md-6 mb-4">
         <div class="card">

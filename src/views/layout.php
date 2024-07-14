@@ -39,6 +39,9 @@ if (isset($_SESSION['alert'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?action=analysis">分析</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?action=about">アプリについて</a>
+                </li>
             </ul>
         </div>
     </div>

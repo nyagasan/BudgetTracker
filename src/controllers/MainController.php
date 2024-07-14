@@ -80,6 +80,10 @@ class MainController {
         $this->render('analysis', ['analysis' => $analysis]);
     }
 
+    public function about() {
+        $this->render('about');
+    }
+
     private function render($view, $data = []) {
         extract($data);
         require_once "views/layout.php";

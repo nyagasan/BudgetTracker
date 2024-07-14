@@ -15,6 +15,9 @@ switch ($action) {
     case 'analysis':
         $controller->showAnalysis();
         break;
+    case 'about':
+        $controller->about();
+        break;
     default:
         $controller->home();
 }
