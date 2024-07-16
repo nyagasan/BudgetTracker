@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>家計簿アプリ</title>
+    <!-- Bootstrapのスタイルシートを読み込み -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <?php
+// セッションにアラートがある場合、表示して削除
 if (isset($_SESSION['alert'])) {
     $alertType = $_SESSION['alert']['type'];
     $alertMessage = $_SESSION['alert']['message'];
@@ -18,6 +20,7 @@ if (isset($_SESSION['alert'])) {
     unset($_SESSION['alert']);
 }
 ?>
+<!-- ナビゲーションバー -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
         <a class="navbar-brand" href="index.php">家計簿アプリ</a>
@@ -49,8 +52,9 @@ if (isset($_SESSION['alert'])) {
 <div class="container mt-4">
     <?php include $view . '.php'; ?>
 </div>
-
+<!-- BootstrapのJavaScriptを読み込み -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Chart.jsを読み込み -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

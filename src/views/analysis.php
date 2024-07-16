@@ -1,3 +1,4 @@
+// 分析ページ
 <h1>支出分析</h1>
 <canvas id="expenseChart" width="400" height="200"></canvas>
 
@@ -28,6 +29,7 @@
 </div>
 
 <script>
+    // Chart.jsでグラフを描画する
     document.addEventListener('DOMContentLoaded', function() {
         var ctx = document.getElementById('expenseChart').getContext('2d');
         var data = <?= json_encode($analysis) ?>;

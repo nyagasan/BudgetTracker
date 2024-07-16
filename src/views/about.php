@@ -1,3 +1,4 @@
+// Aboutページ
 <h1 class="mb-4">家計簿アプリについて</h1>
 
 <div class="card mb-4">
